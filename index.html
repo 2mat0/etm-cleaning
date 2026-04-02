@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Excuse The Mess Cleaning (ETM) - Professional commercial janitorial and window cleaning services in Austin, Texas. Owner-operated, reliable, and locally trusted. Serving offices, retail spaces, and commercial facilities across the Greater Austin Area."/>
+  <meta name="keywords" content="commercial cleaning Austin, janitorial services Austin TX, window cleaning Austin, office cleaning Austin, commercial cleaning Greater Austin, Austin cleaning company, professional cleaners Austin Texas, retail cleaning services Austin"/>
+  <meta name="author" content="Excuse The Mess Cleaning, LLC"/>
+  <meta name="robots" content="index, follow"/>
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="ETM Cleaning | Commercial Janitorial & Window Cleaning – Austin, TX"/>
+  <meta property="og:description" content="Owner-operated commercial cleaning services in Austin. Professional janitorial and window cleaning for businesses. Same standard every visit. Call (512) 643-3650"/>
+  <meta property="og:url" content="https://www.etmcleaning.com"/>
+  <meta property="og:image" content="etm-logo.png"/>
+  <meta property="og:locale" content="en_US"/>
+  
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Excuse The Mess Cleaning, LLC",
+    "alternateName": "ETM Cleaning",
+    "description": "Professional commercial janitorial and window cleaning services for businesses in Greater Austin Area",
+    "url": "https://www.etmcleaning.com",
+    "telephone": "+15126433650",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "30.267153",
+      "longitude": "-97.743061"
+    },
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "30.267153",
+        "longitude": "-97.743061"
+      },
+      "geoRadius": "50000"
+    },
+    "serviceType": ["Commercial Janitorial Services", "Window Cleaning", "Office Cleaning", "Retail Space Cleaning"],
+    "openingHours": "Mo-Fr 08:00-18:00"
+  }
+  </script>
+  
+  <link rel="icon" type="image/png" href="etm-favicon.png"/>
+  <title>ETM Cleaning | Commercial Janitorial & Window Cleaning – Greater Austin Area</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:  #0e0e0e;
+      --white:  #f5f2ee;
+      --accent: #7499bc;
+      --accent-light: #a3bdd4;
+      --mid:    #1e1e1e;
+      --card:   #242424;
+      --text-muted: #777;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 48px;
+      background: rgba(14,14,14,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(116,153,188,0.15);
+    }
+
+    .nav-logo img { height: clamp(60px, 12vw, 200px); display: block; }
+
+    nav a.cta-nav {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--accent);
+      padding: 10px 22px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    nav a.cta-nav:hover { opacity: 0.85; }
+
+    .hero {
+      min-height: auto;
+      padding: 380px 48px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 40%, rgba(116,153,188,0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(116,153,188,0.05) 0%, transparent 60%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(116,153,188,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(116,153,188,0.035) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.8rem, 9.5vw, 8.5rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      position: relative;
+      max-width: 900px;
+    }
+    h1 .line2 { color: var(--accent); }
+
+    .hero-sub {
+      margin-top: 32px;
+      font-size: 1.05rem;
+      color: rgba(245,242,238,0.65);
+      max-width: 480px;
+      position: relative;
+    }
+
+    .hero-badge {
+      margin-top: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(116,153,188,0.1);
+      border: 1px solid rgba(116,153,188,0.28);
+      padding: 8px 16px;
+      border-radius: 2px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      position: relative;
+      width: fit-content;
+    }
+
+    .hero-actions {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      position: relative;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--accent);
+      padding: 16px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    .hero-phone {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .hero-phone:hover { color: var(--white); }
+
+    .tagline-strip {
+      background: var(--accent);
+      padding: 22px 48px;
+      text-align: center;
+    }
+    .tagline-strip p {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+      letter-spacing: 0.07em;
+      color: var(--white);
+    }
+
+    .services {
+      padding: 120px 48px;
+      border-top: 1px solid rgba(116,153,188,0.1);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+    }
+
+    .service-card {
+      background: var(--card);
+      padding: 44px 38px;
+      border-top: 3px solid transparent;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .service-card:hover { background: #2a2a2a; border-top-color: var(--accent); }
+
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: rgba(116,153,188,0.18);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .service-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: rgba(245,242,238,0.6);
+      line-height: 1.75;
+    }
+
+    .why {
+      padding: 100px 48px;
+      border-top: 1px solid rgba(116,153,188,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .why-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.6rem, 4.5vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+    .why-left h2 span { color: var(--accent); }
+
+    .why-left p {
+      font-size: 0.95rem;
+      color: rgba(245,242,238,0.65);
+      line-height: 1.75;
+      max-width: 400px;
+    }
+
+    .why-points { display: flex; flex-direction: column; gap: 24px; }
+
+    .why-point { display: flex; align-items: flex-start; gap: 16px; }
+
+    .why-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 2px;
+      background: rgba(116,153,188,0.1);
+      border: 1px solid rgba(116,153,188,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .why-icon svg { width: 18px; height: 18px; stroke: var(--accent); }
+
+    .why-point-text strong { display: block; font-weight: 500; font-size: 0.95rem; margin-bottom: 4px; }
+    .why-point-text span { font-size: 0.88rem; color: rgba(245,242,238,0.55); }
+
+    .contact {
+      padding: 120px 48px;
+      border-top: 1px solid rgba(116,153,188,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+    .contact-left h2 span { color: var(--accent); }
+
+    .contact-left p {
+      font-size: 0.95rem;
+      color: rgba(245,242,238,0.6);
+      max-width: 340px;
+      margin-bottom: 40px;
+    }
+
+    .contact-details { display: flex; flex-direction: column; gap: 12px; }
+
+    .contact-details a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.2s;
+    }
+    .contact-details a:hover { color: var(--accent-light); }
+
+    .contact-details .icon { width: 18px; height: 18px; opacity: 0.5; flex-shrink: 0; }
+
+    form { display: flex; flex-direction: column; gap: 16px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 14px 16px;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+    select option { background: var(--card); }
+    textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      margin-top: 8px;
+      width: 100%;
+      padding: 18px;
+      background: var(--accent);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .form-submit:hover { opacity: 0.85; }
+
+    .form-note { font-size: 0.78rem; color: var(--text-muted); text-align: center; }
+
+    .form-success {
+      text-align: center;
+      padding: 60px 40px;
+      background: var(--card);
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      animation: fadeIn 1s ease;
+    }
+    
+    .form-success .success-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .form-success .success-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--white);
+    }
+    
+    .form-success h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    
+    .form-success p {
+      font-size: 1.05rem;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    
+    .form-success .success-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+    
+    .fade-out {
+      animation: fadeOut 0.6s ease forwards;
+    }
+
+    footer {
+      padding: 32px 48px;
+      border-top: 1px solid rgba(116,153,188,0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer img { height: 120px; opacity: 0.65; }
+    .footer-copy { font-size: 0.78rem; color: var(--text-muted); }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.7s ease forwards;
+    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .fade-in:nth-child(2) { animation-delay: 0.1s; }
+    .fade-in:nth-child(3) { animation-delay: 0.2s; }
+    .fade-in:nth-child(4) { animation-delay: 0.3s; }
+    .fade-in:nth-child(5) { animation-delay: 0.4s; }
+    .fade-in:nth-child(6) { animation-delay: 0.5s; }
+
+    @media (max-width: 768px) {
+      nav { padding: 12px 20px; }
+      .hero { padding: 100px 20px 64px; }
+      .tagline-strip { padding: 18px 20px; }
+      .services { padding: 80px 20px; }
+      .why { grid-template-columns: 1fr; padding: 80px 20px; gap: 48px; }
+      .contact { grid-template-columns: 1fr; padding: 80px 20px; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: center; }
+      footer img { height: 80px; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <nav>
+    <a href="#top" class="nav-logo">
+      <img src="etm-logo.png" alt="Excuse The Mess Cleaning" />
+    </a>
+    <a href="#contact" class="cta-nav">Get a Quote</a>
+  </nav>
+
+<section class="hero">
+
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+	
+    <p class="hero-eyebrow fade-in">Greater Austin Area · Locally Owned &amp; Operated</p>
+    <h1 class="fade-in">
+      The Last<br>
+      <span class="line2">Cleaners</span><br>
+      You'll Need.
+    </h1>
+    <p class="hero-sub fade-in">
+      Commercial janitorial and window cleaning for businesses across the Greater Austin Area — done right, every time.
+    </p>
+    <div class="hero-badge fade-in">
+      ✦ &nbsp;Owner-operated · No call centers. No shortcuts.
+    </div>
+    <div class="hero-actions fade-in">
+      <a href="#contact" class="btn-primary">Request a Free Quote</a>
+      <a href="tel:+15126433650" class="hero-phone">(512) 643-3650</a>
+    </div>
+  </section>
+
+  <div class="tagline-strip">
+    <p>Excuse The Mess Cleaning, LLC &nbsp;·&nbsp; Greater Austin Area &nbsp;·&nbsp; Commercial Janitorial &amp; Window Cleaning &nbsp;·&nbsp; Owner-Operated &nbsp;·&nbsp; (512) 643-3650</p>
+  </div>
+
+  <section class="services">
+    <p class="section-label">What We Do</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-title">Commercial Janitorial</div>
+        <p class="service-desc">Recurring cleaning services for offices, retail spaces, and commercial facilities. Daily, weekly, or custom schedules. We learn your space and keep it consistent — no revolving door of strangers.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-title">Window Cleaning</div>
+        <p class="service-desc">Interior and exterior window cleaning for commercial buildings. Streak-free results, professional equipment, and a crew that shows up when they say they will.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="why-left">
+      <p class="section-label">Why ETM</p>
+      <h2>We're Not A<br><span>Corporation.</span></h2>
+      <p>When you call us, you talk to the owner. When we show up, it's someone who cares about the job. That's the difference between a company and a service.</p>
+    </div>
+    <div class="why-points">
+      <div class="why-point">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div class="why-point-text">
+          <strong>Owner-Operated</strong>
+          <span>You deal directly with the person responsible for the work — not a dispatcher or account manager.</span>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+        </div>
+        <div class="why-point-text">
+          <strong>Local to Austin</strong>
+          <span>We live here. We work here. We're invested in the businesses we serve.</span>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="why-point-text">
+          <strong>Consistent Quality</strong>
+          <span>Same standard every visit. No surprises, no excuses.</span>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        </div>
+        <div class="why-point-text">
+          <strong>Easy to Reach</strong>
+          <span>Call or email and get a real response — fast.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-left">
+      <p class="section-label">Contact</p>
+      <h2>Get a<br><span>Free Quote</span></h2>
+      <p>Fill out the form and we'll get back to you within one business day.</p>
+      <div class="contact-details">
+        <a href="tel:+15126433650">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006 6l1.52-1.52a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+          (512) 643-3650
+        </a>
+        <a href="mailto:etmcbusiness@gmail.com">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          etmcbusiness@gmail.com
+        </a>
+      </div>
+    </div>
+
+    <form name="contact" action="https://formspree.io/f/maqldbgv" method="POST">
+      
+      <!-- Success Message (hidden by default) -->
+      <div id="form-success" class="form-success" style="display: none;">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <h3>Thank You!</h3>
+        <p>We've received your request and will respond within one business day.</p>
+        <p class="success-sub">Forget the rest, hire the best! 👍</p>
+      </div>
+      
+      <div class="form-row">
+        <div>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div>
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Acme Co." />
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="(512) 000-0000" />
+        </div>
+      </div>
+      <div>
+        <label for="service">Service Needed</label>
+        <select id="service" name="service">
+          <option value="">Select a service…</option>
+          <option>Commercial Janitorial</option>
+          <option>Window Cleaning</option>
+          <option>Both</option>
+        </select>
+      </div>
+      <div>
+        <label for="message">Additional Details</label>
+        <textarea id="message" name="message" placeholder="Approximate square footage, frequency, location in the Greater Austin Area, anything else we should know…"></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Request</button>
+      <p class="form-note">We'll respond within one business day.</p>
+    </form>
+  </section>
+
+  <footer>
+    <img src="etm-logo.png" alt="ETM Logo">
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
