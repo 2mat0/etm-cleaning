@@ -1,0 +1,11 @@
+# Redirect all traffic to https://etmcleaning.com (canonical URL)
+# This ensures consistent URLs for SEO and prevents duplicate content penalties
+
+# HTTP non-www to HTTPS non-www
+http://etmcleaning.com/* https://etmcleaning.com/:splat 301!
+
+# HTTP www to HTTPS non-www
+http://www.etmcleaning.com/* https://etmcleaning.com/:splat 301!
+
+# HTTPS www to HTTPS non-www
+https://www.etmcleaning.com/* https://etmcleaning.com/:splat 301!
