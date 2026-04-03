@@ -85,6 +85,32 @@ document.addEventListener('DOMContentLoaded', function() {
   const companyInput = document.getElementById('company');
   const emailInput = document.getElementById('email');
   const messageInput = document.getElementById('message');
+  const reviewCountEl = document.getElementById('review-count');
+
+  async function loadReviewCount() {
+    if (!reviewCountEl) return;
+
+    try {
+      const response = await fetch('/api/reviews', {
+        method: 'GET',
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (!response.ok) return;
+
+      const data = await response.json();
+      const count = Number(data && data.count);
+
+      if (!Number.isFinite(count) || count < 0) return;
+
+      const formatted = new Intl.NumberFormat('en-US').format(count);
+      reviewCountEl.textContent = `${formatted} ${count === 1 ? 'Review' : 'Reviews'}`;
+    } catch (error) {
+      // Keep fallback text when request fails.
+    }
+  }
+
+  loadReviewCount();
   
   // Sanitize name field
   if (nameInput) {

@@ -75,6 +75,27 @@ This is a static website that can be deployed to:
 
 ## 📝 Configuration
 
+### Dynamic Google Review Count
+
+The site can pull live Google review counts on page load via a Cloudflare Pages Function.
+
+Required environment variables:
+
+- GOOGLE_PLACES_API_KEY
+- GOOGLE_PLACE_ID
+
+How it works:
+
+1. Frontend requests /api/reviews.
+2. Cloudflare Pages runs functions/api/reviews.js for that route.
+3. The function calls Google Places API and returns userRatingCount.
+4. script.js updates the Reviews text in the badge.
+
+Files involved:
+
+- functions/api/reviews.js
+- script.js
+
 ### Updating Formspree Endpoint
 
 To change the form submission endpoint:

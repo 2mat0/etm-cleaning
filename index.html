@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Excuse The Mess Cleaning (ETM) - Professional commercial janitorial and window cleaning services in Austin, Texas. Owner-operated, reliable, and locally trusted. Serving offices, retail spaces, and commercial facilities across the Greater Austin Area."/>
+  <meta name="description" content="Owner-operated commercial janitorial and window cleaning in Austin, TX. Reliable service for offices, retail spaces, and commercial facilities across Greater Austin."/>
   <meta name="keywords" content="commercial cleaning Austin, janitorial services Austin TX, window cleaning Austin, office cleaning Austin, commercial cleaning Greater Austin, Austin cleaning company, professional cleaners Austin Texas, retail cleaning services Austin"/>
   <meta name="author" content="Excuse The Mess Cleaning, LLC"/>
   <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.etmcleaning.com/" />
+
   
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="ETM Cleaning | Commercial Janitorial & Window Cleaning – Austin, TX"/>
-  <meta property="og:description" content="Owner-operated commercial cleaning services in Austin. Professional janitorial and window cleaning for businesses. Same standard every visit. Call (512) 643-3650"/>
+  <meta property="og:title" content="ETM Cleaning | Commercial Cleaning Austin, TX"/>
+  <meta property="og:description" content="Owner-operated commercial janitorial and window cleaning in Austin, TX. Reliable service for offices, retail spaces, and commercial facilities across Greater Austin."/>
   <meta property="og:url" content="https://www.etmcleaning.com"/>
   <meta property="og:image" content="etm-logo.png"/>
   <meta property="og:locale" content="en_US"/>
@@ -23,7 +25,7 @@
     "@type": "LocalBusiness",
     "name": "Excuse The Mess Cleaning, LLC",
     "alternateName": "ETM Cleaning",
-    "description": "Professional commercial janitorial and window cleaning services for businesses in Greater Austin Area",
+    "description": "Owner-operated commercial janitorial and window cleaning in Greater Austin",
     "url": "https://www.etmcleaning.com",
     "telephone": "+15126433650",
     "priceRange": "$$",
@@ -53,7 +55,7 @@
   </script>
   
   <link rel="icon" type="image/png" href="etm-favicon.png"/>
-  <title>ETM Cleaning | Commercial Janitorial & Window Cleaning – Greater Austin Area</title>
+  <title>ETM Cleaning | Commercial Cleaning Austin, TX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -193,7 +195,7 @@
       margin-top: 32px;
       font-size: 1.05rem;
       color: rgba(245,242,238,0.65);
-      max-width: 480px;
+      max-width: 620px;
       position: relative;
     }
 
@@ -498,6 +500,59 @@
     }
     .reviews-arrow:hover { background: var(--accent); color: var(--white); }
 
+    .google-reviews-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .google-reviews-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(116,153,188,0.06);
+      border: 1px solid rgba(116,153,188,0.18);
+      padding: 12px 18px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .google-reviews-link:hover {
+      border-color: rgba(163,189,212,0.55);
+      background: rgba(116,153,188,0.12);
+    }
+    .review-brand-icon {
+      height: 28px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+    .review-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      align-items: flex-start;
+    }
+    .review-stars-inline {
+      color: #f5c518;
+      font-size: 0.9rem;
+      letter-spacing: 2.5px;
+      line-height: 1;
+    }
+    .review-count-row {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent-light);
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+    }
+    .review-google-icon {
+      height: 20px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
     .contact {
       padding: 120px 48px;
       border-top: 1px solid rgba(116,153,188,0.1);
@@ -692,15 +747,23 @@
 
 @media (max-width: 768px) {
       nav { padding: 12px 20px; }
+  .nav-logo img { height: clamp(58px, 16vw, 88px); }
+  nav a.cta-nav {
+    font-size: 0.72rem;
+    padding: 8px 14px;
+  }
       .hint-hover { display: none; }
       .hint-tap { display: inline; }      .service-card:hover .service-expand { max-height: 0; opacity: 0; }
       .service-card:hover .hover-hint { opacity: 1; max-height: 30px; margin-top: 14px; }
       .service-card.expanded .service-expand { max-height: 800px; opacity: 1; transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease 0.1s; }
       .service-card.expanded .hover-hint { opacity: 0; max-height: 0; margin-top: 0; }
       .service-card.expanded { border-color: var(--accent); box-shadow: 0 0 18px rgba(116,153,188,0.15); background: #2e2e2e; }
-      .hero { padding: 100px 20px 64px; }
+      .hero { padding: 140px 20px 64px; }
 h1 { font-size: clamp(2.8rem, 11vw, 3.8rem); padding: 0 16px; }
       .tagline-strip { padding: 18px 20px; }
+      .google-reviews-link { padding: 10px 14px; }
+      .review-stars-inline { font-size: 0.84rem; letter-spacing: 2px; }
+      .review-count-row { font-size: 0.73rem; }
       .services { padding: 80px 20px; }
       .why { grid-template-columns: 1fr; padding: 80px 20px; gap: 48px; }
       .contact { grid-template-columns: 1fr; padding: 80px 20px; gap: 48px; }
@@ -743,7 +806,9 @@ h1 { font-size: clamp(2.8rem, 11vw, 3.8rem); padding: 0 16px; }
 You'll Ever Need.
     </h1>
     <p class="hero-sub fade-in">
-      Commercial janitorial and window cleaning services. Done right the first time. No guess work, just great work.
+      Commercial janitorial and window cleaning for Austin businesses.<br>
+      Done right the first time.<br>
+      No guess work, just great work.
     </p>
     <div class="hero-badge fade-in">
 We don't cut corners — we clean them.
@@ -881,12 +946,14 @@ We don't cut corners — we clean them.
      <button class="reviews-arrow" id="reviewsNext">&#8594;</button>
     </div>
    <p style="text-align:center; margin-top:28px; font-size:0.95rem; color:rgba(245,242,238,0.65); line-height:1.75;">Your business deserves the same results. Invest in it and enjoy a clean environment, stress-free.</p>
-    <div style="display:flex; justify-content:center; margin-top:20px;">
-      <a href="https://www.google.com/search?sca_esv=dedf32225a3c14d9&rlz=1C1UEAD_enUS1143US1143&sxsrf=ANbL-n4VgKV05SDKqtw1SRAInxpi1vRRTw:1775178942495&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOfq3CLN7oGzp6UQIxh1_GH5pWFKEwOMjzcg4i_MJFdnplsQD1t74i-ggg6oX799vYritwt6aZMLDnYbnVNecc23sNaQoe9msYk7kqWFSXypWh0BlOw%3D%3D&q=Excuse+the+Mess+Cleaning,+LLC+Reviews&sa=X" target="_blank" style="display:inline-flex; align-items:center; gap:12px; background:rgba(116,153,188,0.06); border:1px solid rgba(116,153,188,0.18); padding:12px 18px; border-radius:2px; text-decoration:none; transition: border-color 0.2s, background 0.2s;">
-        <div style="display:flex; flex-direction:column; gap:2px;">
-          <span style="color:#f5c518; font-size:0.85rem; letter-spacing:3px; line-height:1;">★★★★★</span>
-          <span style="font-size:0.75rem; font-weight:500; color:var(--accent-light); letter-spacing:0.06em; line-height:1;">5.0 · 20 Reviews on Google</span>
+    <div class="google-reviews-wrap">
+      <a href="https://www.google.com/search?sca_esv=dedf32225a3c14d9&rlz=1C1UEAD_enUS1143US1143&sxsrf=ANbL-n4VgKV05SDKqtw1SRAInxpi1vRRTw:1775178942495&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOfq3CLN7oGzp6UQIxh1_GH5pWFKEwOMjzcg4i_MJFdnplsQD1t74i-ggg6oX799vYritwt6aZMLDnYbnVNecc23sNaQoe9msYk7kqWFSXypWh0BlOw%3D%3D&q=Excuse+the+Mess+Cleaning,+LLC+Reviews&sa=X" target="_blank" class="google-reviews-link">
+        <img src="etm-favicon.png" alt="ETM Cleaning" class="review-brand-icon" />
+        <div class="review-meta">
+          <span class="review-stars-inline">★★★★★</span>
+          <span class="review-count-row" id="review-count" aria-live="polite">20 Reviews</span>
         </div>
+        <img src="google-icon.png" alt="Google" class="review-google-icon" />
       </a>
     </div>
   </section>
