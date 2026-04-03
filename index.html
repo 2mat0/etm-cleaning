@@ -94,9 +94,9 @@
       border-bottom: 1px solid rgba(116,153,188,0.15);
     }
 
-    .nav-logo img { height: clamp(60px, 12vw, 200px); display: block; }
+.nav-logo img { height: clamp(45px, 9vw, 150px); display: block; }
 
-    nav a.cta-nav {
+  nav a.cta-nav {
       font-size: 0.82rem;
       font-weight: 500;
       letter-spacing: 0.1em;
@@ -106,10 +106,14 @@
       padding: 10px 22px;
       border-radius: 2px;
       text-decoration: none;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, box-shadow 0.2s;
+      animation: ctaPulse 2.5s ease-in-out infinite;
     }
-    nav a.cta-nav:hover { opacity: 0.85; }
-
+   nav a.cta-nav:hover { opacity: 0.85; animation: none; box-shadow: 0 0 28px rgba(116,153,188,0.9); }
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 0 4px rgba(116,153,188,0.2); }
+      50% { box-shadow: 0 0 24px rgba(116,153,188,0.85), 0 0 40px rgba(116,153,188,0.4); }
+    }
     .hero {
       min-height: auto;
       padding: 380px 48px 80px;
@@ -122,15 +126,15 @@
       overflow: hidden;
     }
 
-    .hero-bg {
+ .hero-bg {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 50% at 80% 40%, rgba(116,153,188,0.09) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(116,153,188,0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 50% at 80% 40%, rgba(116,153,188,0.03) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(116,153,188,0.02) 0%, transparent 60%);
     }
 
-    .hero-grid {
+  .hero-grid {
       position: absolute;
       inset: 0;
       background-image:
@@ -139,8 +143,28 @@
       background-size: 80px 80px;
       mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
     }
-
-    .hero-eyebrow {
+    #particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      bottom: -10px;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      opacity: 0;
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.2; }
+      100% { transform: translateY(-100vh) scale(0.3); opacity: 0; }
+    }    .hero-eyebrow {
       font-size: 0.78rem;
       font-weight: 500;
       letter-spacing: 0.18em;
@@ -152,14 +176,9 @@
       align-items: center;
       gap: 12px;
     }
-    .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 32px;
-      height: 1px;
-      background: var(--accent);
-    }
-
+   .hero-eyebrow::before {
+  display: none;
+}
     h1 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3.8rem, 9.5vw, 8.5rem);
@@ -218,7 +237,12 @@
       text-decoration: none;
       transition: opacity 0.2s;
     }
-    .btn-primary:hover { opacity: 0.85; }
+   .btn-primary:hover { opacity: 0.85; }
+    .expand-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
 
     .hero-phone {
       font-size: 0.88rem;
@@ -228,16 +252,26 @@
     }
     .hero-phone:hover { color: var(--white); }
 
-    .tagline-strip {
+   .tagline-strip {
       background: var(--accent);
-      padding: 22px 48px;
-      text-align: center;
+      padding: 22px 0;
+      overflow: hidden;
+      white-space: nowrap;
     }
-    .tagline-strip p {
+ .tagline-track {
+      display: inline-flex;
+      animation: marquee 26.4s linear infinite;
+      will-change: transform;
+    }
+    .tagline-track span {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(1.05rem, 2.2vw, 1.5rem);
       letter-spacing: 0.07em;
       color: var(--white);
+    }
+   @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
     .services {
@@ -245,38 +279,53 @@
       border-top: 1px solid rgba(116,153,188,0.1);
     }
 
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
+   .section-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent-light);
       margin-bottom: 48px;
       display: flex;
       align-items: center;
       gap: 12px;
+      background: rgba(116,153,188,0.08);
+      border: 1px solid rgba(116,153,188,0.2);
+      padding: 7px 14px;
+      border-radius: 2px;
+      width: fit-content;
     }
     .section-label::before {
       content: '';
       display: inline-block;
-      width: 32px;
+      width: 20px;
       height: 1px;
       background: var(--accent);
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2px;
+ .services-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .services-grid .service-card {
+      max-width: 100%;
+      width: 100%;
+      text-align: left;
     }
 
-    .service-card {
+  .service-card {
       background: var(--card);
       padding: 44px 38px;
-      border-top: 3px solid transparent;
-      transition: border-color 0.25s, background 0.25s;
+      border: 2px solid transparent;
+      transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+      contain: layout;
     }
-    .service-card:hover { background: #2a2a2a; border-top-color: var(--accent); }
+    .service-card:hover {
+      background: #2e2e2e;
+      border-color: var(--accent);
+      box-shadow: 0 0 18px rgba(116,153,188,0.15);
+    }
 
     .service-num {
       font-family: 'Bebas Neue', sans-serif;
@@ -294,56 +343,160 @@
       color: var(--white);
     }
 
-    .service-desc {
+   .service-desc {
       font-size: 0.9rem;
       color: rgba(245,242,238,0.6);
       line-height: 1.75;
     }
-
-    .why {
-      padding: 100px 48px;
-      border-top: 1px solid rgba(116,153,188,0.1);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
+  .service-expand {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+      opacity: 0;
+    }
+    .hover-hint {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--accent-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 1;
+      max-height: 30px;
+      overflow: hidden;
+      transition: opacity 0.4s ease, max-height 0.4s ease, margin-top 0.4s ease;
+    }
+    .service-card:hover .hover-hint {
+      opacity: 0;
+      max-height: 0;
+      margin-top: 0;
+    }
+    .service-card:hover .service-expand {
+   max-height: 800px;
+      opacity: 1;
+      transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease 0.1s;
+    }
+    .service-expand-inner {
+      padding-top: 24px;
+      font-size: 0.9rem;
+      color: rgba(245,242,238,0.6);
+      line-height: 1.75;
+    }
+  .service-expand-inner p {
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-weight: 500;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+    }
+    .service-expand-inner ul {
+      list-style: none;
+      padding: 0;
+    }
+    .service-expand-inner ul li::before {
+      content: '✦';
+      color: var(--accent);
+      margin-right: 10px;
+      font-size: 0.65rem;
     }
 
+  .why {
+      padding: 100px 48px;
+      border-top: 1px solid rgba(116,153,188,0.1);
+      text-align: center;
+    }
+    .why-left {
+      margin-bottom: 48px;
+    }
     .why-left h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.6rem, 4.5vw, 4rem);
       line-height: 0.95;
       letter-spacing: 0.02em;
-      margin-bottom: 24px;
+      margin-bottom: 12px;
     }
     .why-left h2 span { color: var(--accent); }
-
     .why-left p {
       font-size: 0.95rem;
       color: rgba(245,242,238,0.65);
       line-height: 1.75;
-      max-width: 400px;
     }
 
-    .why-points { display: flex; flex-direction: column; gap: 24px; }
-
-    .why-point { display: flex; align-items: flex-start; gap: 16px; }
-
-    .why-icon {
-      flex-shrink: 0;
-      width: 36px;
-      height: 36px;
+    .reviews-slider {
+      position: relative;
+      overflow: hidden;
+     max-width: 900px;
+      margin: 0 auto;
+    }
+    .reviews-track {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .review-card {
+      min-width: 100%;
+      background: var(--card);
+      border: 1px solid rgba(116,153,188,0.15);
       border-radius: 2px;
-      background: rgba(116,153,188,0.1);
-      border: 1px solid rgba(116,153,188,0.22);
+      padding: 36px 40px;
+      text-align: left;
+    }
+    .review-stars {
+      color: var(--accent);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .review-text {
+      font-size: 0.95rem;
+      color: rgba(245,242,238,0.75);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .review-author {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+    }
+    .reviews-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .reviews-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(116,153,188,0.3);
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+  .reviews-dots span.active { background: var(--accent); }
+    .reviews-nav {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
     }
-    .why-icon svg { width: 18px; height: 18px; stroke: var(--accent); }
-
-    .why-point-text strong { display: block; font-weight: 500; font-size: 0.95rem; margin-bottom: 4px; }
-    .why-point-text span { font-size: 0.88rem; color: rgba(245,242,238,0.55); }
+    .reviews-arrow {
+      background: rgba(116,153,188,0.1);
+      border: 1px solid rgba(116,153,188,0.25);
+      color: var(--accent-light);
+      width: 38px;
+      height: 38px;
+      border-radius: 2px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .reviews-arrow:hover { background: var(--accent); color: var(--white); }
 
     .contact {
       padding: 120px 48px;
@@ -519,7 +672,11 @@
       gap: 16px;
     }
     footer img { height: 120px; opacity: 0.65; }
-    .footer-copy { font-size: 0.78rem; color: var(--text-muted); }
+   .footer-copy { font-size: 0.78rem; color: var(--text-muted); }
+    .footer-social { display: flex; gap: 20px; align-items: center; }
+    .footer-social a { color: var(--text-muted); transition: color 0.2s; }
+    .footer-social a:hover { color: var(--accent-light); }
+    .footer-social svg { width: 22px; height: 22px; fill: currentColor; }
 
     .fade-in {
       opacity: 0;
@@ -533,9 +690,16 @@
     .fade-in:nth-child(5) { animation-delay: 0.4s; }
     .fade-in:nth-child(6) { animation-delay: 0.5s; }
 
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
       nav { padding: 12px 20px; }
+      .hint-hover { display: none; }
+      .hint-tap { display: inline; }      .service-card:hover .service-expand { max-height: 0; opacity: 0; }
+      .service-card:hover .hover-hint { opacity: 1; max-height: 30px; margin-top: 14px; }
+      .service-card.expanded .service-expand { max-height: 800px; opacity: 1; transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease 0.1s; }
+      .service-card.expanded .hover-hint { opacity: 0; max-height: 0; margin-top: 0; }
+      .service-card.expanded { border-color: var(--accent); box-shadow: 0 0 18px rgba(116,153,188,0.15); background: #2e2e2e; }
       .hero { padding: 100px 20px 64px; }
+h1 { font-size: clamp(2.8rem, 11vw, 3.8rem); padding: 0 16px; }
       .tagline-strip { padding: 18px 20px; }
       .services { padding: 80px 20px; }
       .why { grid-template-columns: 1fr; padding: 80px 20px; gap: 48px; }
@@ -543,7 +707,7 @@
       .form-row { grid-template-columns: 1fr; }
       footer { padding: 24px 20px; flex-direction: column; align-items: center; }
       footer img { height: 80px; }
-    }
+     }
   </style>
 </head>
 <body id="top">
@@ -557,20 +721,32 @@
 
 <section class="hero">
 
-    <div class="hero-bg"></div>
+   <div class="hero-bg"></div>
     <div class="hero-grid"></div>
+    <div id="particles"></div>
+    <script>
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 40; i++) {
+        const p = document.createElement('div');
+        p.classList.add('particle');
+        p.style.left = Math.random() * 100 + '%';
+        p.style.width = p.style.height = (Math.random() * 3 + 1.5) + 'px';
+        p.style.animationDuration = (Math.random() * 12 + 8) + 's';
+        p.style.animationDelay = (Math.random() * 10) + 's';
+        container.appendChild(p);
+      }
+    </script>
 	
     <p class="hero-eyebrow fade-in">Greater Austin Area · Locally Owned &amp; Operated</p>
     <h1 class="fade-in">
-      The Last<br>
-      <span class="line2">Cleaners</span><br>
-      You'll Need.
+      The Last <span class="line2">Cleaners</span><br>
+You'll Ever Need.
     </h1>
     <p class="hero-sub fade-in">
-      Commercial janitorial and window cleaning for businesses across the Greater Austin Area — done right, every time.
+      Commercial janitorial and window cleaning services. Done right the first time. No guess work, just great work.
     </p>
     <div class="hero-badge fade-in">
-      ✦ &nbsp;Owner-operated · No call centers. No shortcuts.
+We don't cut corners — we clean them.
     </div>
     <div class="hero-actions fade-in">
       <a href="#contact" class="btn-primary">Request a Free Quote</a>
@@ -578,85 +754,174 @@
     </div>
   </section>
 
-  <div class="tagline-strip">
-    <p>Excuse The Mess Cleaning, LLC &nbsp;·&nbsp; Greater Austin Area &nbsp;·&nbsp; Commercial Janitorial &amp; Window Cleaning &nbsp;·&nbsp; Owner-Operated &nbsp;·&nbsp; (512) 643-3650</p>
+<div class="tagline-strip">
+    <div class="tagline-track">
+      <span>The Last Cleaners You'll Ever Need &nbsp;·&nbsp; No Guess Work, Just Great Work &nbsp;·&nbsp; Consider Your Cleaning Needs Gone &nbsp;·&nbsp; Excuse The Mess, We'll Handle The Rest &nbsp;·&nbsp;</span>
+      <span>The Last Cleaners You'll Ever Need &nbsp;·&nbsp; No Guess Work, Just Great Work &nbsp;·&nbsp; Consider Your Cleaning Needs Gone &nbsp;·&nbsp; Excuse The Mess, We'll Handle The Rest &nbsp;·&nbsp;</span>
+      <span>The Last Cleaners You'll Ever Need &nbsp;·&nbsp; No Guess Work, Just Great Work &nbsp;·&nbsp; Consider Your Cleaning Needs Gone &nbsp;·&nbsp; Excuse The Mess, We'll Handle The Rest &nbsp;·&nbsp;</span>
+      <span>The Last Cleaners You'll Ever Need &nbsp;·&nbsp; No Guess Work, Just Great Work &nbsp;·&nbsp; Consider Your Cleaning Needs Gone &nbsp;·&nbsp; Excuse The Mess, We'll Handle The Rest &nbsp;·&nbsp;</span>
+    </div>
   </div>
-
-  <section class="services">
-    <p class="section-label">What We Do</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-num">01</div>
-        <div class="service-title">Commercial Janitorial</div>
-        <p class="service-desc">Recurring cleaning services for offices, retail spaces, and commercial facilities. Daily, weekly, or custom schedules. We learn your space and keep it consistent — no revolving door of strangers.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">02</div>
-        <div class="service-title">Window Cleaning</div>
-        <p class="service-desc">Interior and exterior window cleaning for commercial buildings. Streak-free results, professional equipment, and a crew that shows up when they say they will.</p>
+	
+<section class="services">
+  <p class="section-label">What We Offer</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-title">Commercial Janitorial Services</div>
+      <p style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; color: var(--accent-light); text-transform: uppercase; margin-bottom: 12px;">The Zero-Effort Facility Cleaning Program</p>
+      <p class="service-desc">A fully managed janitorial program built on excellent quality standards. No supervision, no follow-ups. Every clean is documented, photographed, and internally reviewed before we leave. A 99.99% deletion of your janitorial needs from your focus. So you can get back to running your business, not managing your building.</p>
+<p class="hover-hint">↓ <span class="hint-hover">Hover</span><span class="hint-tap">Tap</span> to expand</p>      <div class="service-expand">
+        <div class="service-expand-inner">
+          <p>Sound Familiar?</p>
+          <ul>
+            <li>Missed cleanings and missed commitments</li>
+            <li>Inconsistent quality and no accountability</li>
+            <li>Chaotic communication and constant check-ins</li>
+            <li>No verification and no visibility</li>
+          </ul>
+          <p>What This Program Does Differently</p>
+          <ul>
+            <li>Every scheduled clean follows a documented, industry-specific checklist</li>
+            <li>Every clean is photographed and time-stamped</li>
+            <li>Every job is internally reviewed before completion</li>
+            <li>Every cleaner is background-checked and security-vetted</li>
+            <li>Every schedule is fixed and reliability-backed</li>
+            <li>Same-day transition available after onboarding</li>
+          </ul>
+          <p>Our Guarantee</p>
+          <ul>
+            <li>Missed scheduled cleaning → Next service is FREE</li>
+            <li>Missed checklist items → Corrected within 24 hours</li>
+          </ul>
+          <div class="expand-footer">
+            <a href="#contact" class="btn-primary">Request a Free Quote</a>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+    <div class="service-card">
+      <div class="service-title">Commercial Window Cleaning Services</div>
+      <p style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; color: var(--accent-light); text-transform: uppercase; margin-bottom: 12px;">The Zero-Effort Facility Cleaning Program</p>
+      <p class="service-desc">A fully managed janitorial program built on excellent quality standards. No supervision, no follow-ups. Every clean is documented, photographed, and internally reviewed before we leave. A 99.99% deletion of your janitorial needs from your focus. So you can get back to running your business, not managing your building.</p>
+<p class="hover-hint">↓ <span class="hint-hover">Hover</span><span class="hint-tap">Tap</span> to expand</p>      <div class="service-expand">
+        <div class="service-expand-inner">
+          <p>Sound Familiar?</p>
+          <ul>
+            <li>Missed cleanings and missed commitments</li>
+            <li>Inconsistent quality and no accountability</li>
+            <li>Chaotic communication and constant check-ins</li>
+            <li>No verification and no visibility</li>
+          </ul>
+          <p>What This Program Does Differently</p>
+          <ul>
+            <li>Every scheduled clean follows a documented, industry-specific checklist</li>
+            <li>Every clean is photographed and time-stamped</li>
+            <li>Every job is internally reviewed before completion</li>
+            <li>Every cleaner is background-checked and security-vetted</li>
+            <li>Every schedule is fixed and reliability-backed</li>
+            <li>Same-day transition available after onboarding</li>
+          </ul>
+          <p>Our Guarantee</p>
+          <ul>
+            <li>Missed scheduled cleaning → Next service is FREE</li>
+            <li>Missed checklist items → Corrected within 24 hours</li>
+          </ul>
+          <div class="expand-footer">
+            <a href="#contact" class="btn-primary">Request a Free Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section class="why">
+<section class="why">
     <div class="why-left">
-      <p class="section-label">Why ETM</p>
-      <h2>We're Not A<br><span>Corporation.</span></h2>
-      <p>When you call us, you talk to the owner. When we show up, it's someone who cares about the job. That's the difference between a company and a service.</p>
+      <p class="section-label">What Our Clients Say</p>
+ 
     </div>
-    <div class="why-points">
-      <div class="why-point">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    <div class="reviews-slider">
+      <div class="reviews-track" id="reviewsTrack">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Peter has been working with us for a long time and we are absolutely over satisfied with his work. Having him maintain 3 of our venues proves that quality is his game! Friendly, punctual, professional, dedication and a great all around! Thank you, Sir.</p>
+          <div class="review-author">Frank</div>
         </div>
-        <div class="why-point-text">
-          <strong>Owner-Operated</strong>
-          <span>You deal directly with the person responsible for the work — not a dispatcher or account manager.</span>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Office looks and smells good. My team noticed the difference between you and the other company. Thank you again.</p>
+          <div class="review-author">Daniel</div>
         </div>
-      </div>
-      <div class="why-point">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Thanks so much. The windows and whole place look great. Thank you for your work!</p>
+          <div class="review-author">Julia</div>
         </div>
-        <div class="why-point-text">
-          <strong>Local to Austin</strong>
-          <span>We live here. We work here. We're invested in the businesses we serve.</span>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Clean looks great! Appreciate it! Thanks for doing great work!</p>
+          <div class="review-author">Jeff</div>
         </div>
-      </div>
-      <div class="why-point">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <div class="why-point-text">
-          <strong>Consistent Quality</strong>
-          <span>Same standard every visit. No surprises, no excuses.</span>
-        </div>
-      </div>
-      <div class="why-point">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-        </div>
-        <div class="why-point-text">
-          <strong>Easy to Reach</strong>
-          <span>Call or email and get a real response — fast.</span>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">You are the BEST! YOU ARE DOING A FANTASTIC JOB! VERY PLEASED! Looks great!!</p>
+          <div class="review-author">Gayle</div>
         </div>
       </div>
+    </div>
+   <div class="reviews-nav">
+      <button class="reviews-arrow" id="reviewsPrev">&#8592;</button>
+      <div class="reviews-dots" id="reviewsDots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+     <button class="reviews-arrow" id="reviewsNext">&#8594;</button>
+    </div>
+   <p style="text-align:center; margin-top:28px; font-size:0.95rem; color:rgba(245,242,238,0.65); line-height:1.75;">Your business deserves the same results. Invest in it and enjoy a clean environment, stress-free.</p>
+    <div style="display:flex; justify-content:center; margin-top:20px;">
+      <a href="https://www.google.com/search?sca_esv=dedf32225a3c14d9&rlz=1C1UEAD_enUS1143US1143&sxsrf=ANbL-n4VgKV05SDKqtw1SRAInxpi1vRRTw:1775178942495&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOfq3CLN7oGzp6UQIxh1_GH5pWFKEwOMjzcg4i_MJFdnplsQD1t74i-ggg6oX799vYritwt6aZMLDnYbnVNecc23sNaQoe9msYk7kqWFSXypWh0BlOw%3D%3D&q=Excuse+the+Mess+Cleaning,+LLC+Reviews&sa=X" target="_blank" style="display:inline-flex; align-items:center; gap:12px; background:rgba(116,153,188,0.06); border:1px solid rgba(116,153,188,0.18); padding:12px 18px; border-radius:2px; text-decoration:none; transition: border-color 0.2s, background 0.2s;">
+        <div style="display:flex; flex-direction:column; gap:2px;">
+          <span style="color:#f5c518; font-size:0.85rem; letter-spacing:3px; line-height:1;">★★★★★</span>
+          <span style="font-size:0.75rem; font-weight:500; color:var(--accent-light); letter-spacing:0.06em; line-height:1;">5.0 · 20 Reviews on Google</span>
+        </div>
+      </a>
     </div>
   </section>
 
+  <script>
+    const track = document.getElementById('reviewsTrack');
+    const dots = document.querySelectorAll('#reviewsDots span');
+    let current = 0;
+    const total = dots.length;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+    document.getElementById('reviewsPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('reviewsNext').addEventListener('click', () => goTo(current + 1));
+
+    setInterval(() => goTo((current + 1) % total), 10000);
+  </script>
   <section class="contact" id="contact">
     <div class="contact-left">
       <p class="section-label">Contact</p>
       <h2>Get a<br><span>Free Quote</span></h2>
-      <p>Fill out the form and we'll get back to you within one business day.</p>
+      <p>Fill out the form and we'll get back to you within one day.</p>
       <div class="contact-details">
         <a href="tel:+15126433650">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006 6l1.52-1.52a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
           (512) 643-3650
         </a>
-        <a href="mailto:etmcbusiness@gmail.com">
+      <a href="mailto:inquiries@etmcleaning.com">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          etmcbusiness@gmail.com
+          inquiries@etmcleaning.com
         </a>
       </div>
     </div>
@@ -672,7 +937,7 @@
           </svg>
         </div>
         <h3>Thank You!</h3>
-        <p>We've received your request and will respond within one business day.</p>
+       <p>We've received your request and will respond within one day.</p>
         <p class="success-sub">Forget the rest, hire the best! 👍</p>
       </div>
       
@@ -683,39 +948,60 @@
         </div>
         <div>
           <label for="company">Company</label>
-          <input type="text" id="company" name="company" placeholder="Acme Co." />
+          <input type="text" id="company" name="company" placeholder="My Company" />
         </div>
       </div>
       <div class="form-row">
         <div>
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+          <input type="email" id="email" name="email" placeholder="jane@mycompany.com" required />
         </div>
         <div>
           <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" placeholder="(512) 000-0000" />
+          <input type="tel" id="phone" name="phone" placeholder="(512) 555-5555" required pattern="\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}" title="Please enter a valid 10-digit phone number e.g. (512) 555-5555" />
         </div>
       </div>
       <div>
         <label for="service">Service Needed</label>
         <select id="service" name="service">
           <option value="">Select a service…</option>
-          <option>Commercial Janitorial</option>
-          <option>Window Cleaning</option>
+          <option>Commercial Janitorial Services</option>
+          <option>Window Cleaning Services</option>
           <option>Both</option>
         </select>
       </div>
       <div>
         <label for="message">Additional Details</label>
-        <textarea id="message" name="message" placeholder="Approximate square footage, frequency, location in the Greater Austin Area, anything else we should know…"></textarea>
+        <textarea id="message" name="message" placeholder="Approximate square footage, Approximate window panes, Frequencey, Address, Anything else we should know…"></textarea>
       </div>
       <button type="submit" class="form-submit">Send Request</button>
-      <p class="form-note">We'll respond within one business day.</p>
+     <p class="form-note">We'll respond within one day.</p>
     </form>
   </section>
 
-  <footer>
+<script>
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('expanded');
+      });
+    });
+  }
+</script>
+<footer>
     <img src="etm-logo.png" alt="ETM Logo">
+    <div class="footer-social">
+      <a href="https://www.instagram.com/etmcleaning/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@etmcleaning" target="_blank" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@ETMCLEANING" target="_blank" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+      </a>
+    </div>
+   <p class="footer-copy">© 2026 Excuse The Mess Cleaning, LLC. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
