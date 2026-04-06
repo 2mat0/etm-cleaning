@@ -1,2 +1,3 @@
-# Canonical redirect: non-www → www
-https://etmcleaning.com/* https://www.etmcleaning.com/:splat 301!
+# this is useless to us, for now
+# eventually we can redirect old links to new links to make sure links online are never dead pages
+# like this: /old-page /new-page
