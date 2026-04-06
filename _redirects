@@ -9,3 +9,6 @@ http://www.etmcleaning.com/* https://www.etmcleaning.com/:splat 301!
 
 # HTTPS non-www to HTTPS www
 https://etmcleaning.com/* https://www.etmcleaning.com/:splat 301!
+
+# Wildcard redirect
+/* https://www.etmcleaning.com/:splat 301!
